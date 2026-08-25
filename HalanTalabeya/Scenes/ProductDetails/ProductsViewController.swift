@@ -87,14 +87,12 @@ class ProductsViewController: UIViewController, ProductsDisplayLogic, UICollecti
         super.viewDidLoad()
         view.backgroundColor = AppColors.halanWhite
         title = categoryName
-     // view.addSubview(topBar)
         setUpNav()
         searchBarRow.configure(placeholder: "ابحث فى \(categoryName)...")
         view.addSubview(searchBarRow)
         view.addSubview(productsCollectionView)
         view.addSubview(loadingIndicator)
-      //topBar.configure(title: categoryName)
-        
+
         NSLayoutConstraint.activate([
                     searchBarRow.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                     searchBarRow.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -111,7 +109,6 @@ class ProductsViewController: UIViewController, ProductsDisplayLogic, UICollecti
                 ])
         loadingIndicator.startAnimating()
         interactor?.fetchChips(request: .init(categoryId: categoryId, area: area, city: city))
-     // navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func setUpNav(){

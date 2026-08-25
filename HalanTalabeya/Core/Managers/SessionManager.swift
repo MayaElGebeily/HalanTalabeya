@@ -20,9 +20,7 @@ final class SessionManager: SessionManaging {
     }
     func currentHeaders() -> [String: String] {
         let device = KeychainService.shared.read(key: "deviceUUID") ?? deviceIdentifier()
-        print("📱 Device header: \(device)") // TEMP
         let token = KeychainService.shared.read(key: tokenKey)
-        print("🔑 Token: \(token?.prefix(20) ?? "NIL")...") // TEMP
 
         var headers: [String: String] = [
             "lat": "\(currentLatitude())",
@@ -76,7 +74,7 @@ final class SessionManager: SessionManaging {
 
         let devToken = Bundle.main.object(forInfoDictionaryKey: "DEV_ACCESS_TOKEN") as? String
         let devCookie = Bundle.main.object(forInfoDictionaryKey: "DEV_SESSION_COOKIE") as? String
-        let devDevice = "Mobile;Iphone;iPhone_11;N/A;IOS;26.6;D10F0597-0727-4B23-8A0F-AD9525405F61;en;10800;1785149183;13.3.1;DE59F883-3100-4A6D-8CDE-9F4640C61A42" // hardcoded, no escaping issues
+        let devDevice = "Mobile;Iphone;iPhone_11;N/A;IOS;26.6;D10F0597-0727-4B23-8A0F-AD9525405F61;en;10800;1785149183;13.3.1;DE59F883-3100-4A6D-8CDE-9F4640C61A42"
 
         if let devToken = devToken, let devCookie = devCookie, !devToken.isEmpty {
             saveSesssion(accessToken: devToken, sessionCookie: devCookie)

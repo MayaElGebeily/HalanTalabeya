@@ -18,14 +18,6 @@ class ChipsHeaderView: UICollectionReusableView, UICollectionViewDataSource, UIC
     var chips: [subCategoryChipViewModel] = []
     private var selectedIndex: Int = 0
     
-  //  private lazy var selectedCategoryLabel: UILabel = {
-  //      let label = UILabel()
-  //      label.font = AppFonts.headingH3
-  //      label.textColor = AppColors.contentPrimary
-  //      label.translatesAutoresizingMaskIntoConstraints = false
-  //      return label
-  //  }()
-    
     private lazy var chipsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -51,10 +43,6 @@ class ChipsHeaderView: UICollectionReusableView, UICollectionViewDataSource, UIC
             chipsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             chipsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             chipsCollectionView.heightAnchor.constraint(equalToConstant: 40),
-            
-      //      selectedCategoryLabel.topAnchor.constraint(equalTo: //chipsCollectionView.bottomAnchor, constant: 16),
-      //      selectedCategoryLabel.trailingAnchor.constraint(equalTo: //trailingAnchor, constant: -16),
-      //      selectedCategoryLabel.bottomAnchor.constraint(equalTo: //bottomAnchor, constant: -16)
         ])
     }
     
@@ -63,11 +51,9 @@ class ChipsHeaderView: UICollectionReusableView, UICollectionViewDataSource, UIC
     }
     
     func configure(chips: [subCategoryChipViewModel], selectedIndex: Int
-                  // categoryTitle: String
     ) {
         self.chips = chips
         self.selectedIndex = selectedIndex
-     //   selectedCategoryLabel.text = categoryTitle
         chipsCollectionView.reloadData()
     }
     
