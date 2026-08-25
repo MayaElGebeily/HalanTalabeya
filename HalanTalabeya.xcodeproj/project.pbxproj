@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E1A22E630331D4100BC5B49 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3E1A22E530331D4100BC5B49 /* SDWebImage */; };
+		3E1A22E830331D4100BC5B49 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E1A22E730331D4100BC5B49 /* SDWebImageMapKit */; };
+		3E1A23AD3033378E00BC5B49 /* DesignKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E1A23AC3033378E00BC5B49 /* DesignKit */; };
+		3E1A23B03033379800BC5B49 /* HalanNetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E1A23AF3033379800BC5B49 /* HalanNetworkKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3E1A22033032FD5A00BC5B49 /* HalanTalabeya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HalanTalabeya.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1A22B73033044F00BC5B49 /* HalanNetworkKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HalanNetworkKit; path = ../HalanNetworkKit; sourceTree = SOURCE_ROOT; };
+		3E1A22B83033064B00BC5B49 /* DesignKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignKit; path = ../DesignKit; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3E1A22153032FD5B00BC5B49 /* Exceptions for "HalanTalabeya" folder in "HalanTalabeya" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				App/Info.plist,
+				Config/DevSecrets.xcconfig,
+			);
+			target = 3E1A22023032FD5A00BC5B49 /* HalanTalabeya */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3E1A22053032FD5A00BC5B49 /* HalanTalabeya */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3E1A22153032FD5B00BC5B49 /* Exceptions for "HalanTalabeya" folder in "HalanTalabeya" target */,
+			);
+			path = HalanTalabeya;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E1A22003032FD5A00BC5B49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E1A22E830331D4100BC5B49 /* SDWebImageMapKit in Frameworks */,
+				3E1A23B03033379800BC5B49 /* HalanNetworkKit in Frameworks */,
+				3E1A22E630331D4100BC5B49 /* SDWebImage in Frameworks */,
+				3E1A23AD3033378E00BC5B49 /* DesignKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E1A21FA3032FD5A00BC5B49 = {
+			isa = PBXGroup;
+			children = (
+				3E1A22053032FD5A00BC5B49 /* HalanTalabeya */,
+				3E1A22043032FD5A00BC5B49 /* Products */,
+				3E1A22B73033044F00BC5B49 /* HalanNetworkKit */,
+				3E1A22B83033064B00BC5B49 /* DesignKit */,
+			);
+			sourceTree = "<group>";
+		};
+		3E1A22043032FD5A00BC5B49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E1A22033032FD5A00BC5B49 /* HalanTalabeya.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3E1A22023032FD5A00BC5B49 /* HalanTalabeya */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E1A22163032FD5B00BC5B49 /* Build configuration list for PBXNativeTarget "HalanTalabeya" */;
+			buildPhases = (
+				3E1A21FF3032FD5A00BC5B49 /* Sources */,
+				3E1A22003032FD5A00BC5B49 /* Frameworks */,
+				3E1A22013032FD5A00BC5B49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3E1A22053032FD5A00BC5B49 /* HalanTalabeya */,
+			);
+			name = HalanTalabeya;
+			packageProductDependencies = (
+				3E1A22E530331D4100BC5B49 /* SDWebImage */,
+				3E1A22E730331D4100BC5B49 /* SDWebImageMapKit */,
+				3E1A23AC3033378E00BC5B49 /* DesignKit */,
+				3E1A23AF3033379800BC5B49 /* HalanNetworkKit */,
+			);
+			productName = HalanTalabeya;
+			productReference = 3E1A22033032FD5A00BC5B49 /* HalanTalabeya.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E1A21FB3032FD5A00BC5B49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					3E1A22023032FD5A00BC5B49 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 3E1A21FE3032FD5A00BC5B49 /* Build configuration list for PBXProject "HalanTalabeya" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3E1A21FA3032FD5A00BC5B49;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3E1A22E430331D4100BC5B49 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				3E1A23AB3033378E00BC5B49 /* XCLocalSwiftPackageReference "../DesignKit" */,
+				3E1A23AE3033379700BC5B49 /* XCLocalSwiftPackageReference "../HalanNetworkKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3E1A22043032FD5A00BC5B49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3E1A22023032FD5A00BC5B49 /* HalanTalabeya */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E1A22013032FD5A00BC5B49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E1A21FF3032FD5A00BC5B49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3E1A22173032FD5B00BC5B49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3E1A22053032FD5A00BC5B49 /* HalanTalabeya */;
+			baseConfigurationReferenceRelativePath = Config/DevSecrets.xcconfig;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HalanTalabeya/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maya.HalanTalabeya;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3E1A22183032FD5B00BC5B49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HalanTalabeya/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maya.HalanTalabeya;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3E1A22193032FD5B00BC5B49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3E1A22053032FD5A00BC5B49 /* HalanTalabeya */;
+			baseConfigurationReferenceRelativePath = Config/DevSecrets.xcconfig;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3E1A221A3032FD5B00BC5B49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E1A21FE3032FD5A00BC5B49 /* Build configuration list for PBXProject "HalanTalabeya" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E1A22193032FD5B00BC5B49 /* Debug */,
+				3E1A221A3032FD5B00BC5B49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E1A22163032FD5B00BC5B49 /* Build configuration list for PBXNativeTarget "HalanTalabeya" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E1A22173032FD5B00BC5B49 /* Debug */,
+				3E1A22183032FD5B00BC5B49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3E1A23AB3033378E00BC5B49 /* XCLocalSwiftPackageReference "../DesignKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../DesignKit;
+		};
+		3E1A23AE3033379700BC5B49 /* XCLocalSwiftPackageReference "../HalanNetworkKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../HalanNetworkKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3E1A22E430331D4100BC5B49 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3E1A22E530331D4100BC5B49 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E1A22E430331D4100BC5B49 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		3E1A22E730331D4100BC5B49 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E1A22E430331D4100BC5B49 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		3E1A23AC3033378E00BC5B49 /* DesignKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignKit;
+		};
+		3E1A23AF3033379800BC5B49 /* HalanNetworkKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HalanNetworkKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3E1A21FB3032FD5A00BC5B49 /* Project object */;
+}

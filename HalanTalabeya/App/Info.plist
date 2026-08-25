@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DEV_DEVICE_UUID</key>
+	<string>$(DEV_DEVICE_UUID)</string>
+	<key>DEV_SESSION_COOKIE</key>
+	<string>$(DEV_SESSION_COOKIE)</string>
+	<key>DEV_ACCESS_TOKEN</key>
+	<string>$(DEV_ACCESS_TOKEN)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>DINNextLTArabic-Regular-3.ttf</string>
+		<string>DINNextLTArabic-Medium-4.ttf</string>
+		<string>DINNextLTArabic-Bold-4.ttf</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+</dict>
+</plist>
