@@ -15,6 +15,11 @@ class ProductsViewController: UIViewController, ProductsDisplayLogic, UICollecti
     var interactor: ProductsBuisnessLogic?
     var router: ProductsRouter?
     var chips: [subCategoryChipViewModel] = []
+    
+    private var currentPage = 1
+    private var isLoadingMore = false
+    private var hasMorePages = true
+    
     private var selectedIndex : Int = 0
     let categoryId: String
     let area: String
@@ -29,14 +34,6 @@ class ProductsViewController: UIViewController, ProductsDisplayLogic, UICollecti
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
-
-
-    
-//    private lazy var topBar: CategoryTopBarView = {
-//        let bar = CategoryTopBarView()
-//        bar.translatesAutoresizingMaskIntoConstraints = false
-//        return bar
-//    }()
     
     private lazy var searchBarRow: CategorySearchBarView = {
             let view = CategorySearchBarView()
@@ -205,15 +202,59 @@ class ProductsViewController: UIViewController, ProductsDisplayLogic, UICollecti
         productsCollectionView.reloadData()
         guard let firstChip = chips.first else { return }
         selectedIndex = 0
-        interactor?.fetchProducts(request: .init(categoryId: firstChip.id, area: area, city: city))
+        interactor?.fetchProducts(request: .init(categoryId: firstChip.id, area: area, city: city , page:1))
     }
     
     func displayProducts(viewModel: ProductsModels.fetchProducts.viewModel) {
-        AllProductCards = viewModel.productCards
-        productCards = viewModel.productCards
+        print("✅ Got \(viewModel.productCards.count) products, isFirstPage: \(viewModel.isFirstPage)") // TEMP
+        if viewModel.isFirstPage {
+            AllProductCards = viewModel.productCards
+            productCards = viewModel.productCards
+        } else{
+            AllProductCards.append(contentsOf: viewModel.productCards)
+            productCards.append(contentsOf: viewModel.productCards)
+        }
+        hasMorePages = !viewModel.productCards.isEmpty
+        isLoadingMore = false
         loadingIndicator.stopAnimating()
         productsCollectionView.reloadData()
     }
+    
+    func chispsHeaderView(_ view: ChipsHeaderView, didSelectChipAt index: Int) {
+        selectedIndex = index
+        selectedCategoryTitle = chips[index].title
+        productCards = []
+        currentPage = 1
+        hasMorePages = true
+        loadingIndicator.startAnimating()
+        productsCollectionView.reloadData()
+        let chip = chips[index]
+        interactor?.fetchProducts(request: .init(categoryId: chip.id, area: area, city: city , page: currentPage))
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView){
+        guard !isLoadingMore, hasMorePages else { return }
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let frameHeight = scrollView.frame.height
+        
+        if offsetY > contentHeight - frameHeight - 200 {
+            loadNextPage()
+        }
+    }
+    
+    private func loadNextPage(){
+        guard !isLoadingMore else { return }
+        isLoadingMore = true
+        currentPage += 1
+        print("📄 Loading page \(currentPage)")
+        let categoryId = chips.indices.contains(selectedIndex) ? chips[selectedIndex].id : self.categoryId
+        interactor?.fetchProducts(request: .init(categoryId: categoryId, area: area, city: city , page: currentPage))
+    }
+
+
+
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         2
@@ -241,18 +282,6 @@ class ProductsViewController: UIViewController, ProductsDisplayLogic, UICollecti
             return label
         }
     }
-    
-    
-    func chispsHeaderView(_ view: ChipsHeaderView, didSelectChipAt index: Int) {
-        selectedIndex = index
-        selectedCategoryTitle = chips[index].title
-        productCards = []
-        loadingIndicator.startAnimating()
-        productsCollectionView.reloadData()
-        let chip = chips[index]
-        interactor?.fetchProducts(request: .init(categoryId: chip.id, area: area, city: city))
-    }
-
    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let sectionInsets: CGFloat = 32

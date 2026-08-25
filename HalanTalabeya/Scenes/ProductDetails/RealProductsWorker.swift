@@ -10,7 +10,7 @@ import HalanNetworkKit
 
 protocol ProductsWorkerLogic {
     func fetchChips(categoryId: String, area: String, city: String) async throws -> [RawSubCategory]
-    func fetchProducts(categoryId: String, area: String, city: String) async throws -> [RawProduct]
+    func fetchProducts(categoryId: String, area: String, city: String , page:Int) async throws -> [RawProduct]
 }
 
 final class RealProductsWorker: ProductsWorkerLogic {
@@ -34,11 +34,11 @@ final class RealProductsWorker: ProductsWorkerLogic {
         return raw.data.categories
     }
     
-    func fetchProducts(categoryId: String, area: String, city: String) async throws -> [RawProduct] {
+    func fetchProducts(categoryId: String, area: String, city: String , page: Int) async throws -> [RawProduct] {
         let encodedArea = area.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? area
         let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? city
         let endpoint = NetworkEndpoint(
-            path: "categories/\(categoryId)/products?area=\(encodedArea)&city=\(encodedCity)&page_number=1&page_size=10",
+            path: "categories/\(categoryId)/products?area=\(encodedArea)&city=\(encodedCity)&page_number=\(page)&page_size=4",
             headers: sessionManager.currentHeaders()
         )
         let raw: CategoryProductsRawResponse = try await service.request(endpoint, baseURL: baseURL, responseType: CategoryProductsRawResponse.self)

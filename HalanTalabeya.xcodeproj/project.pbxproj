@@ -24,6 +24,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				App/Info.plist,
+				Config/DevSecrets.xcconfig,
 			);
 			target = 3E1A22023032FD5A00BC5B49 /* HalanTalabeya */;
 		};
@@ -164,6 +165,8 @@
 /* Begin XCBuildConfiguration section */
 		3E1A22173032FD5B00BC5B49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3E1A22053032FD5A00BC5B49 /* HalanTalabeya */;
+			baseConfigurationReferenceRelativePath = Config/DevSecrets.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -218,6 +221,8 @@
 		};
 		3E1A22193032FD5B00BC5B49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3E1A22053032FD5A00BC5B49 /* HalanTalabeya */;
+			baseConfigurationReferenceRelativePath = Config/DevSecrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

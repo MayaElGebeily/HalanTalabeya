@@ -53,7 +53,7 @@ final class ProductsPresenter: ProductsPresentationLogic {
         }
 
         viewController?.displayProducts(
-            viewModel: .init(productCards: cards)
+            viewModel: .init(productCards: cards , isFirstPage: response.isFirstPage)
         )
     }
 }

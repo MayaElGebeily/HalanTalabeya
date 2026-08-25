@@ -6,7 +6,7 @@
 //
 protocol ProductsRepositoryLogic {
     func fetchChips(categoryId: String, area: String, city: String) async throws -> [RawSubCategory]
-    func fetchProducts(categoryId: String, area: String, city: String) async throws -> [RawProduct]
+    func fetchProducts(categoryId: String, area: String, city: String , page:Int) async throws -> [RawProduct]
 }
 
 final class ProductsRepository: ProductsRepositoryLogic {
@@ -21,7 +21,7 @@ final class ProductsRepository: ProductsRepositoryLogic {
         try await worker.fetchChips(categoryId: categoryId, area: area, city: city)
     }
     
-    func fetchProducts(categoryId: String, area: String, city: String) async throws -> [RawProduct] {
-        try await worker.fetchProducts(categoryId: categoryId, area: area, city: city)
+    func fetchProducts(categoryId: String, area: String, city: String , page:Int) async throws -> [RawProduct] {
+        try await worker.fetchProducts(categoryId: categoryId, area: area, city: city , page:page)
     }
 }

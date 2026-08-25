@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DEV_DEVICE_UUID</key>
+	<string>$(DEV_DEVICE_UUID)</string>
+	<key>DEV_SESSION_COOKIE</key>
+	<string>$(DEV_SESSION_COOKIE)</string>
+	<key>DEV_ACCESS_TOKEN</key>
+	<string>$(DEV_ACCESS_TOKEN)</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>DINNextLTArabic-Regular-3.ttf</string>
@@ -25,5 +31,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 </dict>
 </plist>

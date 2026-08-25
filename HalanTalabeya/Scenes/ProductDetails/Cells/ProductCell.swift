@@ -33,7 +33,7 @@ class ProductCell: UICollectionViewCell {
     }()
     
     private lazy var badgeLabel: UILabel = {
-        let label = UILabel()
+        let label = PaddedLabel()
         label.font = AppFonts.captionC2
         label.textColor = AppColors.halanWhite
         label.backgroundColor = AppColors.accentOrange
@@ -204,7 +204,7 @@ class ProductCell: UICollectionViewCell {
         }
         
         badgeLabel.isHidden = viewModel.badgeText == nil
-        badgeLabel.text = viewModel.badgeText.map { "  \($0)  " }
+        badgeLabel.text = viewModel.badgeText
         
         productImageView.sd_setImage(with: URL(string: viewModel.imageURL), placeholderImage: UIImage(systemName: "photo"))
         
@@ -218,5 +218,22 @@ class ProductCell: UICollectionViewCell {
         super.prepareForReuse()
         productImageView.sd_cancelCurrentImageLoad()
         productImageView.image = UIImage(systemName: "photo")
+    }
+}
+final class PaddedLabel: UILabel {
+    var contentInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8) {
+        didSet { invalidateIntrinsicContentSize() }
+    }
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: contentInsets))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(
+            width: size.width + contentInsets.left + contentInsets.right,
+            height: size.height + contentInsets.top + contentInsets.bottom
+        )
     }
 }

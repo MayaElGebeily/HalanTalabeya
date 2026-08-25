@@ -13,3 +13,4 @@ Pods/
 
 # macOS
 *.swp
+/HalanTalabeya/Config/DevSecrets.xcconfig

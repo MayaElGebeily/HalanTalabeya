@@ -5,24 +5,83 @@
 //  Created by Maya El Gebeily on 17/08/2026.
 // The concrete implementation
 //logic to build the 7-header dictionary (Authorization, Cookie, lat, long, country, language, version, device)
+
 import Foundation
+import CoreLocation
+import UIKit
+
 final class SessionManager: SessionManaging {
     
-    private let accessToken = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJTZXNzaW9uSWQiOiIwMWEwMTQ3Ny00NWIxLTc3ZDgtYjRhOC1iODkxYTk2MzA4NDEiLCJQbGF0Zm9ybSI6IklPUyIsIlByb2ZpbGVUeXBlIjoiSEFMQU5fVVNFUl9QUk9GSUxFIiwiVmVyc2lvbiI6IjEuMCIsImlzcyI6ImhhbGFuLmlvIiwic3ViIjoiNjY5ZDExZGU4NWViMDI0NWE3ZmVkZmY4IiwiYXVkIjpbImF1dGhvcml6YXRpb24iXSwiZXhwIjoxODE4NTg1NzU2LCJpYXQiOjE3ODcwNDk3NTZ9.J9rG_4bNfG8jomM_XILxf03-Ihc8HAU9HjjLfDX68S6Zu202n0bLymHwGLtepZHf7IkfBF86TLUcIYX2-Fo1JQ"
-    private let sessionCookie = "017e0ee1f26077c5f6af5fa771cd5af263d71ae377a6b23c648ec781945246bd82bec87a60780bd9905bc83870f849ea8a01c97726f4876f479214f6af21d577fb90da2049"
-    private let deviceUUID = "Mobile;Iphone;iPhone_11;N/A;IOS;26.6;D10F0597-0727-4B23-8A0F-AD9525405F61;en;10800;1785149183;13.3.1;DE59F883-3100-4A6D-8CDE-9F4640C61A42"
+    private let tokenKey = "accessToken"
+    private let cookieKey = "sessionCookie"
     
+    init(){
+        seedDevCredentialsIfNeeded()
+    }
     func currentHeaders() -> [String: String] {
-        return [
-            "Authorization": "Bearer \(accessToken)",
-            "Cookie": "TS016aa6fb=\(sessionCookie)",
-            "lat": "30.0595563",
-            "long": "31.2996639",
+        let device = KeychainService.shared.read(key: "deviceUUID") ?? deviceIdentifier()
+        print("📱 Device header: \(device)") // TEMP
+        let token = KeychainService.shared.read(key: tokenKey)
+        print("🔑 Token: \(token?.prefix(20) ?? "NIL")...") // TEMP
+
+        var headers: [String: String] = [
+            "lat": "\(currentLatitude())",
+            "long": "\(currentLongitude())",
             "country": "eg",
-            "language": "en",
-            "version": "ios-80131",
-            "device": deviceUUID
+            "language": Locale.current.language.languageCode?.identifier ?? "en",
+            "version": appVersionHeader(),
+            "device": device // FIXED — was deviceIdentifier()
         ]
+        if let token = token {
+            headers["Authorization"] = "Bearer \(token)"
+        }
+        if let cookie = KeychainService.shared.read(key: cookieKey) {
+            headers["Cookie"] = "TS016aa6fb=\(cookie)"
+        }
+        return headers
+    }
+    func saveSesssion(accessToken: String , sessionCookie: String) {
+        KeychainService.shared.save(key: tokenKey , value: accessToken)
+        KeychainService.shared.save(key: cookieKey , value: sessionCookie)
+    }
+    func clearSession(){
+        KeychainService.shared.delete(key: tokenKey)
+        KeychainService.shared.delete(key: cookieKey)
+    }
+    private func currentLatitude() -> Double {
+        30.0595563
+    }
+
+    private func currentLongitude() -> Double {
+        31.2996639
+    }
+
+    private func appVersionHeader() -> String {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0"
+        return "ios-\(version)"
+    }
+
+    private func deviceIdentifier() -> String {
+        UIDevice.current.identifierForVendor?.uuidString ?? "unknown"
+    }
+    
+    //bridge development config → Keychain
+    private func seedDevCredentialsIfNeeded() {
+        #if DEBUG
+        KeychainService.shared.delete(key: tokenKey)
+        KeychainService.shared.delete(key: cookieKey)
+        KeychainService.shared.delete(key: "deviceUUID")
+        
+        guard KeychainService.shared.read(key: tokenKey) == nil else { return }
+
+        let devToken = Bundle.main.object(forInfoDictionaryKey: "DEV_ACCESS_TOKEN") as? String
+        let devCookie = Bundle.main.object(forInfoDictionaryKey: "DEV_SESSION_COOKIE") as? String
+        let devDevice = "Mobile;Iphone;iPhone_11;N/A;IOS;26.6;D10F0597-0727-4B23-8A0F-AD9525405F61;en;10800;1785149183;13.3.1;DE59F883-3100-4A6D-8CDE-9F4640C61A42" // hardcoded, no escaping issues
+
+        if let devToken = devToken, let devCookie = devCookie, !devToken.isEmpty {
+            saveSesssion(accessToken: devToken, sessionCookie: devCookie)
+            KeychainService.shared.save(key: "deviceUUID", value: devDevice)
+        }
+        #endif
     }
 }
-

@@ -27,7 +27,7 @@ final class ProductsInteractor: ProductsBuisnessLogic {
     func fetchProducts(request: ProductsModels.fetchProducts.Request) {
         Task {
             do {
-                let rawProducts = try await repository.fetchProducts(categoryId: request.categoryId, area: request.area, city: request.city)
+                let rawProducts = try await repository.fetchProducts(categoryId: request.categoryId, area: request.area, city: request.city , page:request.page)
                 let products = rawProducts.map { rawProduct -> Product in
                     let hasDiscount = (rawProduct.discount ?? 0) > 0
                     return Product(
@@ -40,7 +40,8 @@ final class ProductsInteractor: ProductsBuisnessLogic {
                         packDescription: rawProduct.sellingUnit ?? ""
                     )
                 }
-                await presenter?.presentProducts(response: .init(products: products))
+                //if first then create else append 
+                await presenter?.presentProducts(response: .init(products: products , isFirstPage: request.page == 1))
             } catch {
                 print("Failed to load products: \(error)")
             }

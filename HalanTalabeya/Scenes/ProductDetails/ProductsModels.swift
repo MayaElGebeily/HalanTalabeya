@@ -12,12 +12,15 @@ enum ProductsModels {
             let categoryId: String
             let area: String
             let city: String
+            let page: Int
         }
         struct Response {
             let products: [Product]
+            let isFirstPage: Bool
         }
         struct viewModel {
             let productCards: [ProductCardViewModel]
+            let isFirstPage: Bool
         }
     }
     enum fetchChips{
